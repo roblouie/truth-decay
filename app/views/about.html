@@ -2,7 +2,30 @@
     <h1 class="page-title" ng-animate-ref="title-anchor">Truth Decay</h1>
 </div>
 
-<gallery thumbnail-links="about.thumbnailLinks" image-links="about.imageLinks"></gallery>
+<!--<div>{{about.photoInfo.isTall}}</div>-->
+
+<div class="page-wrapper">
+    <div class="image-wrapper">
+        <span class="helper"></span>
+        <img class="main-image" ng-src="{{about.photoInfo.imagePath}}"/>
+    </div>
+
+    <div class="image-list-wrapper">
+        <div class="image-type-wrapper">
+            <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="fullFrameThumbnail in about.fullFrameThumbnails track by $index" ng-src="{{fullFrameThumbnail}}"/>
+        </div>
+        <div class="hr-wrapper"><hr></div>
+        <div class="image-type-wrapper">
+            <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="jockThumbnail in about.jockThumbnails track by $index" ng-src="{{jockThumbnail}}"/>
+        </div>
+        <div class="hr-wrapper"><hr></div>
+        <div class="image-type-wrapper">
+            <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="teethThumbnail in about.teethThumbnails track by $index" ng-src="{{teethThumbnail}}"/>
+        </div>
+    </div>
+</div>
+
+<!--<gallery thumbnail-links="about.allThumbnails" image-links="about.imageLinks"></gallery>-->
 
 
 
