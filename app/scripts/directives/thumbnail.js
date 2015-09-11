@@ -10,9 +10,10 @@ angular.module('truthDecayApp')
   .directive('thumbnail', function () {
     return {
       restrict: 'A',
-        scope: false,
-        transclude: true,
-      link: function postLink(scope, element, attrs, galleryCtrl) {
+      link: function postLink(scope, element, attrs) {
+        scope.determineRatioAndLoadImage = function() {
+            scope.updatePhotoInfo(element.attr('src').replace('thumbnails', 'shots'));
+        }
 
       }
     };

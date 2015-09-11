@@ -8,8 +8,17 @@
   padding: 0.2em 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 html {
   height: 100%;
+}
+
+hr {
+  margin: 0 40px 0 40px;
+  background-color: black;
 }
 
 body {
@@ -42,16 +51,17 @@ h1.main-title {
 }
 
 .page-header {
-  position: absolute;
+  position: fixed;
   top: 10px;
-  width: 100%;
+  width: 350px;
+  z-index: 100;
 }
 
 h1.page-title {
   font-family: "OldLondon", serif;
   width: 400px;
   margin-top: 0;
-  padding-left: 10px;
+//  padding-left: 10px;
   font-size: 70px;
 }
 
@@ -192,16 +202,18 @@ gallery {
 }
 
 .thumbnail:first-child {
-  margin-left: 120px;
+  margin-top: 40px;
 }
 
 .thumbnail:last-child {
-  margin-right: 120px;
+  margin-bottom: 40px;
 }
 
 .thumbnail {
-  margin: 20px;
-  height: 90px;
+  margin-right:10px;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  width: 160px;
 }
 
 #nav-section {
@@ -255,7 +267,7 @@ gallery {
   height: 100%;
   width: 100%;
   opacity:0;
-  transform:translateY(100%);
+//  transform:translateY(100%);
 }
 
 .view-animation.ng-enter.ng-enter-active {
@@ -263,7 +275,7 @@ gallery {
   height: 100%;
   width: 100%;
   opacity:1;
-  transform:translateY(0%);
+//  transform:translateY(0%);
 }
 
 .view-animation.ng-leave {
@@ -272,7 +284,7 @@ gallery {
   width: 100%;
   transition: 1.0s linear all;
   opacity:1;
-  transform:translateY(0%);
+//  transform:translateY(0%);
 }
 
 .view-animation.ng-leave.ng-leave-active {
@@ -280,25 +292,73 @@ gallery {
   height: 100%;
   width: 100%;
   opacity:0;
-  transform:translateY(-100%);
+//  transform:translateY(-100%);
 }
 
 .main-title.ng-anchor-out {
-  transition: 0.75s linear all;
+  transition: 0.6s linear all;
 }
 
 .main-title.ng-anchor-in {
-  transition: 0.75s linear all;
+  opacity: 1;
+  transition: 0.6s linear opacity;
 }
 
 .page-title.ng-anchor-out {
-  transition: 0.75s linear all;
+  opacity: 0;
+  transition: 0.6s linear all;
 }
 
 .page-title.ng-anchor-in {
-  transition: 0.75s linear all;
+  transition: 0.6s linear all;
 }
 
 .image-list-wrapper {
+  width: 200px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: black;
+  text-align: center;
+}
 
+.image-type-wrapper {
+  background-color: black;
+}
+
+.page-wrapper {
+  background-color: black;
+  height: 100%;
+  position: relative;
+}
+
+.main-image {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  vertical-align: middle;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.image-wrapper {
+  top: 0;
+  position: fixed;
+  /* margin-right: 200px; */
+  /* height: 100%; */
+  white-space: nowrap;
+  right: 200px;
+  bottom: 0;
+  left: 0;
+  background-color: #515151;
+  text-align: center;
+}
+
+.hr-wrapper {
+  background-color: black;
 }
