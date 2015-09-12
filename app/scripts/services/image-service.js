@@ -33,7 +33,7 @@ angular.module('truthDecayApp')
         function getFullFrameLinks(isThumbnails) {
             var urlList = [];
             for (var i = 22; i <=25; i++) {
-                urlList.push("/images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
+                urlList.push("./images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
             }
             return urlList;
         }
@@ -41,19 +41,19 @@ angular.module('truthDecayApp')
         function getJockLinks(isThumbnails) {
             var urlList = [];
             for (var i = 1; i <= 7; i++) {
-                urlList.push("/images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
+                urlList.push("./images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
             }
-            urlList.push("/images/" + (isThumbnails ? "thumbnails/" : "shots/") + 15 + ".JPG");
+            urlList.push("./images/" + (isThumbnails ? "thumbnails/" : "shots/") + 15 + ".JPG");
             return urlList;
         }
 
         function getTeethLinks(isThumbnails) {
             var urlList = [];
             for (var i = 8; i <= 14; i++) {
-                urlList.push("/images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
+                urlList.push("./images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
             }
             for (var i = 16; i <= 21; i++) {
-                urlList.push("/images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
+                urlList.push("./images/" + (isThumbnails ? "thumbnails/" : "shots/") + i + ".JPG");
             }
             return urlList;
         }
@@ -64,6 +64,6 @@ angular.module('truthDecayApp')
 
         function getRandomImage() {
             var imageNumberToShow = Math.floor(Math.random() * (25 - 1 + 1)) + 1;
-            return "/images/shots/" + imageNumberToShow + ".JPG";
+            return "./images/shots/" + imageNumberToShow + ".JPG";
         }
     });

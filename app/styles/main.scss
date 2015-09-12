@@ -8,6 +8,13 @@
   padding: 0.2em 0;
 }
 
+//Universal
+@font-face {
+  font-family: 'OldLondon';
+  src: url('../fonts/OldLondon.ttf'),
+  url('../fonts/OldLondon.ttf') format('truetype');
+}
+
 a {
   text-decoration: none;
 }
@@ -37,6 +44,7 @@ body {
   height: 100%;
 }
 
+//Headers
 h1, h2, h3, h4 {
   font-weight: normal;
   color: white;
@@ -65,7 +73,6 @@ h1.page-title {
   font-family: "OldLondon", serif;
   width: 440px;
   margin-top: 0;
-//  padding-left: 10px;
   font-size: 70px;
   text-shadow: 1px 1px 1px black;
   letter-spacing: 7px;
@@ -94,6 +101,7 @@ h2, h3, h4 {
   text-transform: uppercase;
 }
 
+//Landing page
 .art-info {
   height: 100%;
   max-height: 100%;
@@ -102,82 +110,6 @@ h2, h3, h4 {
   width: 600px;
   position: fixed;
   transition: 0.5s linear all;
-}
-
-@media(min-width: 768px) {
-  video#bgvid {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    background: url(../images/video-poster.png) no-repeat;
-    background-size: cover;
-  }
-}
-
-
-
-
-
-@font-face {
-  font-family: 'OldLondon';
-  src: url('../fonts/OldLondon.ttf'),
-  url('../fonts/OldLondon.ttf') format('truetype');
-}
-
-gallery {
-  height: 100%;
-  display: block;
-  text-align: center;
-  overflow-y: hidden;
-}
-
-#gallery-main-image {
-//  max-width: 90%;
-  max-height: 100%;
-}
-
-.gallery-list {
-  overflow-x: hidden;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  white-space: nowrap;
-  background-color: rgba(0.2, 0.2, 0.2, 0.4);
-  opacity: 0.2;
-}
-
-.gallery-list:hover {
-  opacity: 1.0;
-}
-
-.gallery-nav-button {
-  position: absolute;
-  bottom: 0;
-  width: 90px;
-  height: 100px;
-  background-color: rgb(0, 0, 0);
-  color: white;
-  z-index: 1000;
-}
-
-#gallery-left-button {
-  background: url(../images/icons/chevron_left.svg) black no-repeat center center;
-  background-size: contain;
-  left: 0;
-}
-
-#gallery-right-button {
-  background: url(../images/icons/chevron_right.svg) black no-repeat center center;
-  background-size: contain;
-  right: 0;
 }
 
 #show-gallery-wrapper {
@@ -202,6 +134,11 @@ gallery {
   to { opacity: 0; }
 }
 
+//Gallery
+#gallery-main-image {
+  max-height: 100%;
+}
+
 .thumbnail:first-child {
   margin-top: 40px;
 }
@@ -216,40 +153,6 @@ gallery {
   margin-bottom: 20px;
   width: 160px;
   transition: 0.3s linear all;
-}
-
-#nav-section {
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-}
-
-#nav-link-wrapper {
-  padding-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-  padding-bottom: 30px;
-}
-
-.navigation-link {
-  font-family: OldLondon;
-  color: white;
-  font-size: 54px;
-  font-style: italic;
-  letter-spacing: 4px;
-  text-align: center;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-.navigation-link > a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-.navigation-link:hover {
-  text-decoration: underline;
 }
 
 .view-animation {
@@ -357,6 +260,24 @@ gallery {
   background-position: center center;
 }
 
+//Monitors
+@media(min-width: 768px) {
+  video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(../images/video-poster.png) no-repeat;
+    background-size: cover;
+  }
+}
+
 //Tablets
 @media (max-width: 960px) {
   .art-info {
@@ -366,11 +287,12 @@ gallery {
 
   h1.page-title {
     font-size: 50px;
-    letter-spacing: 4px;
-    width: 300px;
+    letter-spacing: 9px;
+    width: 400px;
   }
 
   .image-list-wrapper {
+    overflow-x: scroll;
     white-space: nowrap;
     height: 100px;
     width: 100%;
@@ -396,9 +318,9 @@ gallery {
   }
 
   .thumbnail {
-    width: inherit;
-    height: 80px;
-    margin-top: 10px;
+    width: auto;
+    height: 60px;
+    margin-top: 5px;
     margin-bottom: 5px;
   }
 
@@ -424,7 +346,7 @@ gallery {
 //Phones
 @media (max-width: 768px) {
   html {
-    background: url(../images/mobile-background.png) no-repeat center center fixed;
+    background: url(../images/mobile-background.jpg) no-repeat center center fixed;
     background-size: cover;
   }
   #bgvid {
@@ -438,15 +360,23 @@ gallery {
   }
 
   h1.main-title {
-    font-size: 75px;
+    font-size: 60px;
+    letter-spacing: 7px;
+    line-height: 70px;
   }
 
   h1.page-title {
+    font-size: 35px;
     width: 100%;
     text-align: center;
   }
 
+  h2 {
+    font-size: 20px;
+  }
+
   h3 {
+    font-size: 16px;
     margin-top: 20px;
   }
 
