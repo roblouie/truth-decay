@@ -14,6 +14,7 @@ a {
 
 html {
   height: 100%;
+  background-color: black;
 }
 
 hr {
@@ -47,22 +48,27 @@ h1.main-title {
   font-size: 95px;
   margin-bottom: 0;
   margin-top: 0;
-  letter-spacing: 8px;
+  letter-spacing: 14px;
+}
+
+.title-wrapper {
+  margin-top: 65px;
 }
 
 .page-header {
   position: fixed;
   top: 10px;
-  width: 350px;
   z-index: 100;
 }
 
 h1.page-title {
   font-family: "OldLondon", serif;
-  width: 400px;
+  width: 440px;
   margin-top: 0;
 //  padding-left: 10px;
   font-size: 70px;
+  text-shadow: 1px 1px 1px black;
+  letter-spacing: 7px;
 }
 
 h2 {
@@ -95,6 +101,7 @@ h2, h3, h4 {
   text-align: center;
   width: 600px;
   position: fixed;
+  transition: 0.5s linear all;
 }
 
 @media(min-width: 768px) {
@@ -114,15 +121,9 @@ h2, h3, h4 {
   }
 }
 
-@media (max-width: 768px) {
-  html {
-    background: url(../images/video-poster.png) no-repeat center center fixed;
-    background-size: cover;
-  }
-  #bgvid {
-    display: none;
-  }
-}
+
+
+
 
 @font-face {
   font-family: 'OldLondon';
@@ -214,6 +215,7 @@ gallery {
   margin-left: 10px;
   margin-bottom: 20px;
   width: 160px;
+  transition: 0.3s linear all;
 }
 
 #nav-section {
@@ -267,7 +269,6 @@ gallery {
   height: 100%;
   width: 100%;
   opacity:0;
-//  transform:translateY(100%);
 }
 
 .view-animation.ng-enter.ng-enter-active {
@@ -275,7 +276,6 @@ gallery {
   height: 100%;
   width: 100%;
   opacity:1;
-//  transform:translateY(0%);
 }
 
 .view-animation.ng-leave {
@@ -284,7 +284,6 @@ gallery {
   width: 100%;
   transition: 1.0s linear all;
   opacity:1;
-//  transform:translateY(0%);
 }
 
 .view-animation.ng-leave.ng-leave-active {
@@ -292,7 +291,6 @@ gallery {
   height: 100%;
   width: 100%;
   opacity:0;
-//  transform:translateY(-100%);
 }
 
 .main-title.ng-anchor-out {
@@ -349,16 +347,110 @@ gallery {
 .image-wrapper {
   top: 0;
   position: fixed;
-  /* margin-right: 200px; */
-  /* height: 100%; */
   white-space: nowrap;
   right: 200px;
   bottom: 0;
   left: 0;
-  background-color: #515151;
+  background-color: #414141;
   text-align: center;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
-.hr-wrapper {
-  background-color: black;
+//Tablets
+@media (max-width: 960px) {
+  .art-info {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  h1.page-title {
+    font-size: 50px;
+    letter-spacing: 4px;
+    width: 300px;
+  }
+
+  .image-list-wrapper {
+    white-space: nowrap;
+    height: 100px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    top: inherit;
+    right: inherit;
+    background-color: black;
+    text-align: center;
+  }
+
+  .image-wrapper {
+    right: 0;
+    bottom: 100px;
+  }
+
+  .image-type-wrapper {
+    display: inline;
+  }
+
+  hr {
+    display: none;
+  }
+
+  .thumbnail {
+    width: inherit;
+    height: 80px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  .thumbnail:first-child {
+    margin-top: 10px;
+  }
+
+  .thumbnail:last-child {
+    margin-bottom: 5px;
+  }
+
+  #bottom-gallery-background {
+    position: fixed;
+    bottom: 0;
+    height: 100px;
+    left: 0;
+    right: 0;
+    background-color: black;
+    z-index: -1000;
+  }
+}
+
+//Phones
+@media (max-width: 768px) {
+  html {
+    background: url(../images/mobile-background.png) no-repeat center center fixed;
+    background-size: cover;
+  }
+  #bgvid {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .title-wrapper {
+    margin-top: 20px;
+  }
+
+  h1.main-title {
+    font-size: 75px;
+  }
+
+  h1.page-title {
+    width: 100%;
+    text-align: center;
+  }
+
+  h3 {
+    margin-top: 20px;
+  }
+
+  .page-header {
+    width: 100%;
+  }
 }
