@@ -7,52 +7,56 @@
  * # mainImage
  */
 angular.module('truthDecayApp')
-  .directive('mainImage', function () {
-    return {
-      restrict: 'A',
-        scope: {
-            ngSrc: '='
-        },
-      link: function postLink(scope, element) {
+    .directive('mainImage', function () {
+        return {
+            restrict: 'A',
+            scope: {
+                ngSrc: '='
+            },
+            link: function postLink(scope, element) {
 
-          scope.$watch('ngSrc', function(newVal) {
-              var imageElement = $('.main-image');
-              if (imageElement.size() == 0) {
-                  $(element).append('<img class="main-image" style="display:none" src="' + newVal + '"/>');
-                  setTimeout(function() {
-                      $(element).css('background-image', 'url(../images/ring-alt.gif)');
-                  }, 200);
-                  $('.main-image').load(function() {
-                    $(this).fadeIn(200, function() {
-                        $(element).css('background-image', 'none');
+                scope.$watch('ngSrc', function(newVal) {
+                    var imageElement = $('.main-image');
+                    if (!imageExists(imageElement)) {
+                        addImageToDOM(newVal);
+                        return;
+                    }
+
+                    fadeOutExistingAndLoadNewImage(imageElement, newVal);
+                });
+
+                function imageExists(imageElement) {
+                    return imageElement.size() > 0;
+                }
+
+                function addImageToDOM(imageUrl) {
+                    $(element).append('<img class="main-image" style="display:none" src="' + imageUrl + '"/>');
+                    setTimeout(addLoadingSpinner, 200);
+                    $('.main-image').load(function() {
+                        $(this).fadeIn(200, removeLoadingSpinner);
                     });
-                  });
-                  return;
-              }
+                }
 
-              //imageElement.fadeOut(800, function() {
-              //    $(this).remove();
-              //    $(element).append('<img class="main-image" style="display:none" src="' + newVal + '"/>');
-              //    $('.main-image').fadeIn();
-              //});
+                function fadeOutExistingAndLoadNewImage(imageElement, imageUrl) {
+                    imageElement.fadeOut(200, function(){
+                        setTimeout(addLoadingSpinner, 300);
+                        $(this).attr('src', imageUrl).bind('onreadystatechange load', function(){
+                            if (this.complete) {
+                                $(this).fadeIn(200, function() {
+                                    setTimeout(removeLoadingSpinner, 100);
+                                });
+                            }
+                        });
+                    });
+                }
 
-              imageElement.fadeOut(200, function(){
-                  setTimeout(function() {
+                function addLoadingSpinner() {
                     $(element).css('background-image', 'url(../images/ring-alt.gif)');
-                  }, 300);
-                  $(this).attr('src', newVal).bind('onreadystatechange load', function(){
-                      if (this.complete) {
-                          $(this).fadeIn(200, function() {
-                              setTimeout(function() {
-                                  $(element).css('background-image', 'none');
-                              }, 100);
-                          });
+                }
 
-                      }
-                  });
-              });
-
-          });
-      }
-    };
-  });
+                function removeLoadingSpinner() {
+                    $(element).css('background-image', 'none');
+                }
+            }
+        };
+    });
