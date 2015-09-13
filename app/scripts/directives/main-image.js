@@ -35,10 +35,11 @@ angular.module('truthDecayApp')
                     $('.main-image').load(function() {
                         $(this).fadeIn(200, removeLoadingSpinner);
                     });
+                    setTimeout(removeLoadingSpinner, 600);
                 }
 
                 function fadeOutExistingAndLoadNewImage(imageElement, imageUrl) {
-                    imageElement.fadeOut(200, function(){
+                    imageElement.fadeOut(200, function() {
                         setTimeout(addLoadingSpinner, 300);
                         $(this).attr('src', imageUrl).bind('onreadystatechange load', function() {
                             if (this.complete) {
