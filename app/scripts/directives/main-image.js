@@ -31,7 +31,7 @@ angular.module('truthDecayApp')
 
                 function addImageToDOM(imageUrl) {
                     $(element).append('<img class="main-image" style="display:none" src="' + imageUrl + '"/>');
-                    setTimeout(addLoadingSpinner, 300);
+                    setTimeout(addLoadingSpinner, 500);
                     $('.main-image').load(function() {
                         $(this).fadeIn(200, removeLoadingSpinner);
                     });
@@ -43,7 +43,7 @@ angular.module('truthDecayApp')
                         $(this).attr('src', imageUrl).bind('onreadystatechange load', function() {
                             if (this.complete) {
                                 $(this).fadeIn(200, function() {
-                                    setTimeout(removeLoadingSpinner, 400);
+                                    setTimeout(removeLoadingSpinner, 600);
                                 });
                             }
                         });
