@@ -17,12 +17,12 @@ angular.module('truthDecayApp')
 
                 scope.$watch('ngSrc', function(newVal) {
                     var imageElement = $('.main-image');
-                    if (!imageExists(imageElement)) {
-                        addImageToDOM(newVal);
-                        return;
-                    }
 
-                    fadeOutExistingAndLoadNewImage(imageElement, newVal);
+                    if (imageExists(imageElement)) {
+                        fadeOutExistingAndLoadNewImage(imageElement, newVal);
+                    } else {
+                        addImageToDOM(newVal);
+                    }
                 });
 
                 function imageExists(imageElement) {
@@ -31,7 +31,7 @@ angular.module('truthDecayApp')
 
                 function addImageToDOM(imageUrl) {
                     $(element).append('<img class="main-image" style="display:none" src="' + imageUrl + '"/>');
-                    setTimeout(addLoadingSpinner, 200);
+                    setTimeout(addLoadingSpinner, 300);
                     $('.main-image').load(function() {
                         $(this).fadeIn(200, removeLoadingSpinner);
                     });
@@ -40,10 +40,10 @@ angular.module('truthDecayApp')
                 function fadeOutExistingAndLoadNewImage(imageElement, imageUrl) {
                     imageElement.fadeOut(200, function(){
                         setTimeout(addLoadingSpinner, 300);
-                        $(this).attr('src', imageUrl).bind('onreadystatechange load', function(){
+                        $(this).attr('src', imageUrl).bind('onreadystatechange load', function() {
                             if (this.complete) {
                                 $(this).fadeIn(200, function() {
-                                    setTimeout(removeLoadingSpinner, 100);
+                                    setTimeout(removeLoadingSpinner, 400);
                                 });
                             }
                         });
