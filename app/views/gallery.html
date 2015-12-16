@@ -1,0 +1,31 @@
+<div class="page-header" ng-animate-ref="also-fix">
+    <h1 class="page-title" ng-animate-ref="title-anchor">Truth Decay</h1>
+</div>
+
+<div class="page-wrapper">
+    <div main-image class="image-wrapper" ng-src="gallery.photoInfo.imagePath">
+        <span class="helper"></span>
+    </div>
+
+    <div class="image-list-wrapper" ng-if="!gallery.tabletSize()">
+        <div class="image-type-wrapper">
+            <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="fullFrameThumbnail in gallery.fullFrameThumbnails track by $index" ng-src="{{fullFrameThumbnail}}"/>
+        </div>
+        <hr>
+        <div class="image-type-wrapper">
+            <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="jockThumbnail in gallery.jockThumbnails track by $index" ng-src="{{jockThumbnail}}"/>
+        </div>
+        <hr>
+        <div class="image-type-wrapper">
+            <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="teethThumbnail in gallery.teethThumbnails track by $index" ng-src="{{teethThumbnail}}"/>
+        </div>
+    </div>
+
+    <div class="image-list-wrapper" ng-if="gallery.tabletSize()">
+        <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="fullFrameThumbnail in gallery.fullFrameThumbnails track by $index" ng-src="{{fullFrameThumbnail}}"/>
+        <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="jockThumbnail in gallery.jockThumbnails track by $index" ng-src="{{jockThumbnail}}"/>
+        <img thumbnail ng-click="determineRatioAndLoadImage()" class="thumbnail" ng-repeat="teethThumbnail in gallery.teethThumbnails track by $index" ng-src="{{teethThumbnail}}"/>
+    </div>
+</div>
+
+<div id="bottom-gallery-background"></div>
